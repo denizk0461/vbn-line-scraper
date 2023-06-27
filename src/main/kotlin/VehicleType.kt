@@ -7,6 +7,8 @@ enum class VehicleType {
     BUERGERBUS,
     TAXI,
     AST,
+
+    // for lines where it is not clear which vehicles they are run with
     NACHT,
     ;
 

@@ -10,7 +10,6 @@ class Scraper {
 
     private val addedLines: MutableList<String> = mutableListOf()
 
-
     /**
      * Scrapes the VBN website for lines.
      *
@@ -88,12 +87,18 @@ class Scraper {
             // Add the line's name to this list to prevent it from being added multiple times
             addedLines.add(name)
 
-            // Construct and insert line into list
+            val type = VehicleType.getType(rows[i].getElementsByClass("lisstIcon")[0].text())
+
+            /*
+             * Construct and insert line into list; special use case for night lines, since those have the 'night'
+             * denominator in place of their vehicle type.
+             */
             list.add(Line(
                 name = name,
                 route = tds[1].text(),
                 areas = areas,
-                vehicleType = VehicleType.getType(rows[i].getElementsByClass("lisstIcon")[0].text()).toString(),
+                vehicleType = if (type == VehicleType.NACHT) "undefined" else type.toString(),
+                operationTime = if (type == VehicleType.NACHT) "NIGHT" else "DAY",
             ))
         }
 
