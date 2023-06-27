@@ -87,7 +87,7 @@ class Scraper {
             // Add the line's name to this list to prevent it from being added multiple times
             addedLines.add(name)
 
-            val type = VehicleType.getType(rows[i].getElementsByClass("lisstIcon")[0].text())
+            val type = VehicleType.getType(rows[i].getElementsByClass("lisstIcon")[0].attr("src"))
 
             /*
              * Construct and insert line into list; special use case for night lines, since those have the 'night'
@@ -99,6 +99,7 @@ class Scraper {
                 areas = areas,
                 vehicleType = if (type == VehicleType.NACHT) "undefined" else type.toString(),
                 operationTime = if (type == VehicleType.NACHT) "NIGHT" else "DAY",
+                color = LineColor.getColor(name, type).toString()
             ))
         }
 

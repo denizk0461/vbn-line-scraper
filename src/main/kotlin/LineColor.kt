@@ -76,85 +76,95 @@ enum class LineColor {
     VBN_DEFAULT_AST,            // #ffcc14; used for AST as well as
     ;
 
-    fun getColor(line: String, type: VehicleType): LineColor = when (line) {
-        // BSAG lines
-        "2" -> BSAG_BLUE
-        "10", "63", "90" -> BSAG_BLUE_DARK
-        "3", "21", "61", "91", "92", "N6", "N10" -> BSAG_BLUE_LIGHT
-        "1", "25", "62", "81", "98", "N1" -> BSAG_GREEN_DARK
-        "8", "20", "29", "31", "52", "65", "66", "80", "N7" -> BSAG_GREEN_LIGHT
-        "22", "N94" -> BSAG_LAVENDER
-        "27", "44", "57", "58", "82", "95", "N5" -> BSAG_ORANGE
-        "N3" -> BSAG_PINK
-        "4", "26", "40", "41", "94", "N4" -> BSAG_RED
-        "5" -> BSAG_TURQUOISE
-        "24", "37", "96" -> BSAG_VIOLET
-        "6", "28", "33", "34", "38", "39", "42", "55", "93", "N9" -> BSAG_YELLOW
+    companion object {
+        fun getColor(line: String, type: VehicleType): LineColor = when (line) {
+            // BSAG lines
+            "2" -> BSAG_BLUE
+            "10", "63", "90" -> BSAG_BLUE_DARK
+            "3", "21", "61", "91", "92", "N6", "N10" -> BSAG_BLUE_LIGHT
+            "1", "25", "62", "81", "98", "N1" -> BSAG_GREEN_DARK
+            "8", "20", "29", "31", "52", "65", "66", "80", "N7" -> BSAG_GREEN_LIGHT
+            "22", "N94" -> BSAG_LAVENDER
+            "27", "44", "57", "58", "82", "95", "N5" -> BSAG_ORANGE
+            "N3" -> BSAG_PINK
+            "4", "26", "40", "41", "94", "N4" -> BSAG_RED
+            "5" -> BSAG_TURQUOISE
+            "24", "37", "96" -> BSAG_VIOLET
+            "6", "28", "33", "34", "38", "39", "42", "55", "93", "N9" -> BSAG_YELLOW
 
-        // BREMERHAVEN BUS lines
-        "502" -> BHV_502
-        "503" -> BHV_503
-        "504" -> BHV_504
-        "505" -> BHV_505
-        "506" -> BHV_506
-        "507" -> BHV_507
-        "508" -> BHV_508
-        "509" -> BHV_509
-        "510" -> BHV_510
-        "512" -> BHV_512
-        "514" -> BHV_514
-        "517" -> BHV_517
-        "S" -> BHV_S
-        "HL" -> BHV_HL
-        "ML" -> BHV_ML
-        "NL" -> BHV_NL
-        "513", "515", "516", "518", "519" -> BHV_WHITE
+            // BREMERHAVEN BUS lines
+            "502" -> BHV_502
+            "503" -> BHV_503
+            "504" -> BHV_504
+            "505" -> BHV_505
+            "506" -> BHV_506
+            "507" -> BHV_507
+            "508" -> BHV_508
+            "509" -> BHV_509
+            "510" -> BHV_510
+            "512" -> BHV_512
+            "514" -> BHV_514
+            "517" -> BHV_517
+            "S" -> BHV_S
+            "HL" -> BHV_HL
+            "ML" -> BHV_ML
+            "NL" -> BHV_NL
+            "513", "515", "516", "518", "519" -> BHV_WHITE
 
-        // VWG lines
-        "301" -> VWG_LAVENDER
-        "302", "304" -> VWG_RED
-        "306" -> VWG_GREEN
-        "330" -> VWG_GREEN_VARIANT
-        "308" -> VWG_BLUE
-        "309" -> VWG_PINK
-        "310" -> VWG_RED_DARK
-        "311" -> VWG_YELLOW_DARK
-        "313" -> VWG_BLUE_GREY
-        "314" -> VWG_LIME
-        "315" -> VWG_BLUE_DARK
-        "318" -> VWG_GREEN_DARK
-        "320" -> VWG_YELLOW_VARIANT
-        "321" -> VWG_ORANGE_LIGHT
-        "322" -> VWG_TURQUOISE
-        "323" -> VWG_BLUE_LIGHT
-        "324" -> VWG_ORANGE
-        "325" -> VWG_PURPLE
-        "329" -> VWG_PINK_DARK
-        "340" -> VWG_PURPLE_DARK
-        "350" -> VWG_TEAL_DARK
-        "N25", "N36", "N37", "N38", "N39", "N40", "N41" -> VWG_NIGHT
+            // VWG lines
+            "301" -> VWG_LAVENDER
+            "302", "304" -> VWG_RED
+            "306" -> VWG_GREEN
+            "330" -> VWG_GREEN_VARIANT
+            "308" -> VWG_BLUE
+            "309" -> VWG_PINK
+            "310" -> VWG_RED_DARK
+            "311" -> VWG_YELLOW_DARK
+            "313" -> VWG_BLUE_GREY
+            "314" -> VWG_LIME
+            "315" -> VWG_BLUE_DARK
+            "318" -> VWG_GREEN_DARK
+            "320" -> VWG_YELLOW_VARIANT
+            "321" -> VWG_ORANGE_LIGHT
+            "322" -> VWG_TURQUOISE
+            "323" -> VWG_BLUE_LIGHT
+            "324" -> VWG_ORANGE
+            "325" -> VWG_PURPLE
+            "329" -> VWG_PINK_DARK
+            "340" -> VWG_PURPLE_DARK
+            "350" -> VWG_TEAL_DARK
+            "N25", "N36", "N37", "N38", "N39", "N40", "N41" -> VWG_NIGHT
 
-        // AllerBus lines
-        "701", "711", "712", "713", "714", "715", "717", "718", "725", "781", "782", "783", "784", "500", "510", "550",
-        "556" -> ALLERBUS
+            // AllerBus lines
+            "701", "711", "712", "713", "714", "715", "717", "718", "725"/*, "781", "782", "783", "784"*/ -> ALLERBUS
 
-        else -> getColorForVehicleType(type)
-    }
+            // AllerBus BürgerBus lines "781", "782", "783", "784": Allerbus color or BürgerBus color?
 
-    /**
-     * Retrieve default VBN color for a specific vehicle type.
-     *
-     * @param type  VehicleType
-     * @return      color
-     */
-    private fun getColorForVehicleType(type: VehicleType): LineColor = when (type) {
-        // Use different colors for S-Bahn and other regional trains
-        VehicleType.TRAIN -> if (name.substring(0, 2) == "RS") VBN_DEFAULT_SBAHN else VBN_DEFAULT_REGIO
-        VehicleType.TRAM -> VBN_DEFAULT_TRAM
-        VehicleType.BUS -> VBN_DEFAULT_BUS
-        VehicleType.BUERGERBUS -> VBN_DEFAULT_BUERGERBUS
-        VehicleType.TAXI -> VBN_DEFAULT_LT
-        VehicleType.AST -> VBN_DEFAULT_AST
-        VehicleType.NACHT -> DEFAULT
+            // BürgerBus lines
+            "654", "221", "222", "223", "347", "359-1", "359-2", "359-3", "359-4", "359-5", "359-6", "393", "394",
+            "116", "117", "181", "182", "183", "184", "185", "186", "281", "283", "612", "616", "802", "803", "845",
+            "851", "852", "854", "863", "864", "881", "884", "885", "781", "782", "783", "784", "785", "786", "788",
+            "789", "791", "792", "793", "794", "796", "797", "798", "405", "415", "" -> VBN_DEFAULT_BUERGERBUS
+
+            else -> getColorForVehicleType(line, type)
+        }
+
+        /**
+         * Retrieve default VBN color for a specific vehicle type.
+         *
+         * @param line  line name
+         * @param type  VehicleType
+         * @return      color
+         */
+        private fun getColorForVehicleType(line: String, type: VehicleType): LineColor = when (type) {
+            // Use different colors for S-Bahn and other regional trains
+            VehicleType.TRAIN -> if (line.substring(0, 2) == "RS") VBN_DEFAULT_SBAHN else VBN_DEFAULT_REGIO
+            VehicleType.TRAM -> VBN_DEFAULT_TRAM
+            VehicleType.BUS -> VBN_DEFAULT_BUS
+            VehicleType.BUERGERBUS -> VBN_DEFAULT_BUERGERBUS
+            VehicleType.TAXI -> VBN_DEFAULT_LT
+            VehicleType.AST -> VBN_DEFAULT_AST
+            VehicleType.NACHT -> DEFAULT
+        }
     }
 }
